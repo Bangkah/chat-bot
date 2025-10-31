@@ -1,4 +1,4 @@
-export const DEFAULT_SYSTEM_PROMPT =
+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export const DEFAULT_SYSTEM_PROMPT =
   process.env.NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT ||
   "";
 

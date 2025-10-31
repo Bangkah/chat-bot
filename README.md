@@ -1,116 +1,131 @@
-# Chatbot Ollama
 
-## About
+# Chatbot Bangkah
 
-Chatbot Ollama is an open source chat UI for Ollama.
+## Tentang
 
-This project is based on [chatbot-ui](https://github.com/mckaywrigley/chatbot-ui) by [Mckay Wrigley](https://github.com/mckaywrigley).
+**Chatbot Bangkah** adalah antarmuka chat (chat UI) **sumber terbuka** untuk Ollama yang dikembangkan oleh **Muhammad Dhiyaul Atha**.
 
-![Chatbot Ollama – Dark](./public/screenshots/screenshot-2025-09-dark.png)
+Proyek ini merupakan adaptasi dari [Chatbot Ollama](https://github.com/ivanfioravanti/chatbot-ollama), yang awalnya dibuat oleh [Ivan Fioravanti](https://github.com/ivanfioravanti), dan terinspirasi dari [chatbot-ui](https://github.com/mckaywrigley/chatbot-ui) karya [Mckay Wrigley](https://github.com/mckaywrigley).
 
-![Chatbot Ollama – Light](./public/screenshots/screenshot-2025-09-light.png)
+![Chatbot Bangkah – Mode Gelap](./public/screenshots/screenshot-2025-09-dark.png)
 
-> If the image does not render, place the new screenshot at `public/screenshots/screenshot-2025-09-dark.png` (light version optional at `public/screenshots/screenshot-2025-09-light.png`).
+![Chatbot Bangkah – Mode Terang](./public/screenshots/screenshot-2025-09-light.png)
 
-## Highlights (new)
+---
 
-- Blue theme polished for light and dark modes with consistent sidebars, headers, and overlays.
-- Document upload (PDF, TXT, MD):
-  - PDFs parsed server‑side for reliability; text/markdown read client‑side.
-  - The full (truncated) content is attached invisibly to the model prompt — the UI stays clean.
-  - 50 MB size cap, 100 page cap (PDF), 50k characters per attachment.
-- Image upload: attach images and send them to vision‑capable models (base64). Non‑vision models simply ignore images.
-- Code blocks: copy button, language label, optional line numbers, line‑wrap toggle, and “download as file”.
-- Streaming & control: Stop Generation button, auto‑scroll toggle (pause/resume when you scroll up).
-- Keyboard shortcuts:
-  - Enter to send, Shift+Enter for newline
-  - Esc to blur input
-  - Ctrl/Cmd+L clears the composer
-  - Arrow Up recalls the last user message
-- Error handling: a consistent toast shows details, Copy details, and Retry.
-- Conversation tools: Copy messages button copies the whole visible conversation (with role labels and any attached content).
-- Sidebar UX: search inputs are theme‑aware, prompts list matches chat list styling, improved hover/selection.
+## Sorotan (Fitur Baru)
 
-## Updates
+- Tema biru diperhalus untuk mode terang dan gelap dengan sidebar, header, dan overlay yang konsisten.  
+- **Unggah dokumen (PDF, TXT, MD):**
+  - File PDF diurai di sisi server agar lebih stabil; teks/markdown dibaca di sisi klien.
+  - Seluruh isi (yang telah dipangkas) disertakan secara tersembunyi pada prompt model — antarmuka tetap bersih.
+  - Batas ukuran 50 MB, 100 halaman (untuk PDF), dan 50.000 karakter per lampiran.
+- **Unggah gambar:** bisa melampirkan gambar dan mengirimkannya ke model yang mendukung penglihatan (*vision-capable*) melalui base64. Model non-vision akan mengabaikannya.
+- **Blok kode:** memiliki tombol salin, label bahasa, nomor baris opsional, tombol ganti baris otomatis, serta opsi “unduh sebagai file”.
+- **Streaming & kontrol:** tombol *Stop Generation*, pengguliran otomatis (auto-scroll) yang dapat dijeda/dilanjutkan saat pengguna menggulir ke atas.
+- **Pintasan keyboard:**
+  - `Enter` untuk mengirim pesan, `Shift+Enter` untuk baris baru  
+  - `Esc` untuk menghilangkan fokus input  
+  - `Ctrl/Cmd+L` untuk menghapus area penulisan  
+  - `Arrow Up` untuk memunculkan pesan pengguna terakhir  
+- **Penanganan error:** notifikasi (toast) seragam yang menampilkan detail kesalahan, tombol salin detail, dan opsi coba lagi (*Retry*).  
+- **Alat percakapan:** tombol salin seluruh percakapan yang terlihat (termasuk label peran dan konten terlampir).  
+- **UX Sidebar:** kolom pencarian mengikuti tema, daftar *prompt* menyesuaikan tampilan daftar chat, serta efek hover dan seleksi diperbaiki.
 
-Chatbot Ollama will be updated over time.
+---
 
-### Next up
+## Pembaruan
 
-- [ ] Model management (pull/delete)
-- [ ] Model info/details dialog
+Chatbot Bangkah akan terus dikembangkan dan diperbarui dari waktu ke waktu oleh **Muhammad Dhiyaul Atha**.
+
+### Fitur Selanjutnya
+
+- [ ] Manajemen model (unduh/hapus)  
+- [ ] Dialog info/detail model  
+- [ ] Sinkronisasi dengan akun pengguna  
+- [ ] Mode offline untuk interaksi tanpa internet  
+
+---
 
 ## Docker
 
-Build locally:
+**Bangun secara lokal:**
+```bash
+docker build -t chat-bot .
+docker run -p 3000:3000 chat-bot
+````
 
-```shell
-docker build -t chatbot-ollama .
-docker run -p 3000:3000 chatbot-ollama
-```
-
-Pull from ghcr:
+**Atau tarik langsung dari GitHub Container Registry:**
 
 ```bash
-docker run -p 3000:3000 ghcr.io/ivanfioravanti/chatbot-ollama:main
+docker run -p 3000:3000 ghcr.io/Bangkah/chat-bot:main
 ```
 
-## Running Locally
+---
 
-### 1. Clone Repo
+## Menjalankan Secara Lokal
+
+### 1. Clone repositori
 
 ```bash
-git clone https://github.com/ivanfioravanti/chatbot-ollama.git
+git clone https://github.com/Bangkah/chat-bot.git
 ```
 
-### 2. Move to folder
+### 2. Pindah ke folder proyek
 
 ```bash
-cd chatbot-ollama
+cd chat-bot
 ```
 
-### 3. Install Dependencies
+### 3. Instal dependensi
 
 ```bash
 npm ci
 ```
 
-### 4. Run Ollama server
+### 4. Jalankan server Ollama
 
-Either via the cli:
+Melalui CLI:
 
 ```bash
 ollama serve
 ```
 
-or via the [desktop client](https://ollama.ai/download)
+Atau lewat [klien desktop Ollama](https://ollama.ai/download)
 
-### 5. Run App
+### 5. Jalankan aplikasi
 
 ```bash
 npm run dev
 ```
 
-### 6. Use It
+### 6. Gunakan
 
-You should be able to start chatting.
+Setelah itu, buka browser dan mulai mengobrol langsung dengan AI.
 
 ### Tips
 
-- Attach documents via the paper icon in the composer — the content is included for the model invisibly so the chat stays uncluttered.
-- Attach an image with the camera icon — vision models will “see” it; others will ignore it.
-- Use the clipboard icon in the sticky header to copy the current conversation.
+* Lampirkan dokumen melalui ikon kertas di kolom pesan — isinya akan dimasukkan ke model secara tersembunyi agar tampilan tetap rapi.
+* Lampirkan gambar dengan ikon kamera — model *vision* akan “melihatnya”, sedangkan model biasa akan mengabaikannya.
+* Gunakan ikon papan klip di bagian atas untuk menyalin seluruh percakapan saat ini.
 
-## Configuration
+---
 
-When deploying the application, the following environment variables can be set:
+## Konfigurasi
 
-| Environment Variable              | Default value                  | Description                                                                                                                               |
-| --------------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| DEFAULT_MODEL                     | `mistral:latest`                | The default model to use on new conversations                                                                                             |
-| NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT | [see here](utils/app/const.ts) | The default system prompt to use on new conversations                                                                                     |
-| NEXT_PUBLIC_DEFAULT_TEMPERATURE   | 1                              | The default temperature to use on new conversations                                                                                       |
+Saat melakukan *deploy*, kamu dapat mengatur variabel lingkungan berikut:
 
-## Contact
+| Variabel Lingkungan                 | Nilai Default                       | Deskripsi                                          |
+| ----------------------------------- | ----------------------------------- | -------------------------------------------------- |
+| `DEFAULT_MODEL`                     | `mistral:latest`                    | Model default yang digunakan untuk percakapan baru |
+| `NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT` | [lihat di sini](utils/app/const.ts) | *System prompt* default untuk percakapan baru      |
+| `NEXT_PUBLIC_DEFAULT_TEMPERATURE`   | `1`                                 | Nilai *temperature* default untuk percakapan baru  |
 
-If you have any questions, feel free to reach out to me on [X](https://x.com/ivanfioravanti).
+---
+
+## Kontak
+
+**Muhammad Dhiyaul Atha**
+GitHub: [@Bangkah](https://github.com/Bangkah)
+Email: *(mdhyaulatha@gmail.com)*
+
